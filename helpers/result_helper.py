@@ -1,12 +1,10 @@
-from loguru import Logger
+from loguru import logger
 
 from models.db import db_session
 from models.entity.course import Course
 from models.entity.result import Result
 from models.entity.student import Student
 from models.service.student import get_student_given_fullname
-
-logger = Logger()
 
 
 def delete_score(fullname, course_name):
