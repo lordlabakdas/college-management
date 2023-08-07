@@ -7,11 +7,11 @@ from models.entity.student import Student
 from models.service.student import get_student_given_fullname
 
 
-def delete_score(fullname, course_name):
+def delete_score(student_fullname, course_name):
     try:
         course = Course.query.filter_by(Course.name == course_name).first()
         student = Student.query.filter_by(
-            Student.first_name == get_student_given_fullname(fullname).first_name
+            Student.first_name == get_student_given_fullname(student_fullname).first_name
         ).first()
 
         result_entry = Result.query.filter_by(

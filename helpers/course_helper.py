@@ -41,7 +41,6 @@ def add_course(name):
         )
         db_session.add(course)
         db_session.commit()
-        db_session.refresh(course)
     except Exception as e:
         logger.exception(f"Error while adding course with exception details {e}")
         raise Exception(f"Error while adding course with exception details {e}")
