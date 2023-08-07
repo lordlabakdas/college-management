@@ -2,14 +2,10 @@ import logging
 from typing import List
 
 from fastapi import APIRouter, HTTPException, status
-
-from helpers import student_helper
-from api.validators.student import (
-    RegistrationPayload,
-    RegistrationResponse,
-)
-
 from loguru import logger
+
+from api.validators.student import RegistrationPayload, RegistrationResponse
+from helpers import student_helper
 
 logger = logging.getLogger("student management program")
 student_apis = APIRouter()
