@@ -6,7 +6,7 @@ from sqlmodel import Field, SQLModel
 
 class Course(SQLModel, table=True):
     id: Optional[uuid.UUID] = Field(default_factory=uuid.uuid4, primary_key=True)
-    name: str
+    name: str = ""
     is_deleted: bool = False
 
     def get_course_given_name(self, name):

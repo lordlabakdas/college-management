@@ -10,10 +10,10 @@ result_apis = APIRouter()
 
 
 @result_apis.delete("/delete-entity/")
-def delete_entity(course_name: str = Query(None), student_fullname: int = Query(None)):
+def delete_entity(course_name: str = Query(None), student_fullname: str = Query(None)):
     if course_name:
         try:
-            course_helper.delete_course(course_name=course_name)
+            course_helper.delete_course_by_name(course_name=course_name)
         except Exception as e:
             logger.exception(f"Error deleting course with exception details {e}")
             raise HTTPException(
