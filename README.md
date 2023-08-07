@@ -14,9 +14,11 @@ DELETE /courses/delete-course/{courseId} - delete a course from the database
 DELETE results/delete-entity/ - delete an entity or entities from the database
 
 Documentation and testing:
+
 Testing and documentation has been dont using swagger at 127.0.0.1:8001/docs
 
 Database: 
+
 Postgres has been used for the database
 
 Please use a venv to run the program:
