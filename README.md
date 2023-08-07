@@ -1,3 +1,7 @@
+#College Management System
+
+-----
+
 The total set of APIs is provided below:
 /home - returns the mail URLS for the above processes
 
