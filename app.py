@@ -20,7 +20,7 @@ logger.add("file_{time}.log")
 logger.add(
     sys.stdout, colorize=True, format="<green>{time}</green> <level>{message}</level>"
 )
-logger = logging.getLogger("groceror")
+logger = logging.getLogger("college-management-program")
 
 app = FastAPI(debug=False)
 app.logger = logger
