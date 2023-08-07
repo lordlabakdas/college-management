@@ -46,6 +46,8 @@ Logging:
 
 `Loguru` was used for logging purposes. The logs are stored in the logs folder.
 
+----
+
 How to run program:
 ```
 $ python app.py if in venv else python3 app.py
