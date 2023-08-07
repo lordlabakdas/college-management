@@ -2,7 +2,7 @@
 
 -----
 
-The total set of APIs is provided below:
+## The total set of APIs is provided below:
 /home - returns the mail URLS for the above processes
 
 Post `/student/register` - register a new student to the database
@@ -19,19 +19,19 @@ DELETE `results/delete-entity/` - delete an entity or entities from the database
 
 ----
 
-Documentation and testing:
+## Documentation and testing:
 
 Testing and documentation has been dont using `swagger` at 127.0.0.1:8001/docs
 
 ----
 
-Database: 
+## Database: 
 
 Postgres has been used for the database. The service used for this purpose is elephantsql.com.
 
 ----
 
-A virtual environment venv is recommended to run the program:
+## A virtual environment venv is recommended to run the program:
 ```
 $ python3 -m venv venv
 $ source venv/bin/activate
@@ -39,20 +39,20 @@ $ source venv/bin/activate
 
 ----
 
-How to install depedencencies:
+## How to install depedencencies:
 ```
 $ pip3 install -r requirements.txt
 ```
 
 ----
 
-Logging:
+## Logging:
 
 `Loguru` was used for logging purposes. The logs are stored in the logs folder.
 
 ----
 
-How to run program:
+## How to run program:
 ```
 $ python app.py if in venv else python3 app.py
 ```
