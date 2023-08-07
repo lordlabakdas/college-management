@@ -32,3 +32,17 @@ def get_all_students():
     students = db_session.query(Student).all()
     students_as_dict = [obj.__dict__ for obj in students]
     return students_as_dict
+
+
+def delete_student(student_fullname: str):
+    try:
+        student = (
+            db_session.query(Student)
+            .filter(Student.first_name == student_fullname.split(" ")[0])
+            .first()
+        )
+        db_session.delete(student)
+        db_session.commit()
+    except Exception as e:
+        logger.exception(f"Error while deleting student with exception details {e}")
+        raise Exception(f"Error while deleting student with exception details {e}")

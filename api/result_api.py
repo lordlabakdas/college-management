@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, HTTPException, Query, status
 from loguru import logger
 
@@ -7,7 +6,7 @@ from helpers import course_helper, result_helper, student_helper
 result_apis = APIRouter()
 
 
-@result_apis.delete("/delete-entity/")
+@result_apis.delete("/delete-score-matrix")
 def delete_entity(course_name: str = Query(None), student_fullname: str = Query(None)):
     if course_name:
         try:
