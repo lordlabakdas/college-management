@@ -28,6 +28,7 @@ def delete_course_by_id(course_id: str):
 def delete_course_by_name(course_name: str):
     try:
         course = db_session.query(Course).filter(Course.name == course_name).first()
+        import pdb; pdb.set_trace()
         db_session.delete(course)
         db_session.commit()
         db_session.refresh(course)

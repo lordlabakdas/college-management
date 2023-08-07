@@ -1,11 +1,9 @@
-import logging
 
 from fastapi import APIRouter, HTTPException, Query, status
 from loguru import logger
 
 from helpers import course_helper, result_helper, student_helper
 
-logger = logging.getLogger("results management")
 result_apis = APIRouter()
 
 
