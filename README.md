@@ -1,10 +1,16 @@
 The total set of APIs is provided below:
 /home - returns the mail URLS for the above processes
+
 Post /student/register - register a new student to the database
+
 Get /student/get-all-students - get all students from the database
+
 GET /courses/get-all-courses - get all courses from the database
+
 POST /courses/add-new-course - add a new course to the database
+
 DELETE /courses/delete-course/{courseId} - delete a course from the database
+
 DELETE results/delete-entity/ - delete an entity or entities from the database
 
 Documentation and testing:
