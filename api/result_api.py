@@ -6,35 +6,38 @@ from helpers import course_helper, result_helper, student_helper
 result_apis = APIRouter()
 
 
-@result_apis.delete("/delete-score-matrix")
-def delete_score_matrix(course_name: str = Query(None), student_fullname: str = Query(None)):
-    if course_name:
-        try:
-            course_helper.delete_course_by_name(course_name=course_name)
-        except Exception as e:
-            logger.exception(f"Error deleting course with exception details {e}")
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Issue with deleting course",
-            )
-    if student_fullname:
-        try:
-            student_helper.delete_student(student_fullname=student_fullname)
-        except Exception as e:
-            logger.exception(f"Error deleting student with exception details {e}")
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Issue with deleting student",
-            )
+@result_apis.post("/add-score-matrix")
+def add_score_matrix(
+    course_name: str = Query(None),
+    student_fullname: str = Query(None),
+    score: str = Query(None),
+):
     if student_fullname and course_name:
         try:
-            result_helper.delete_score(
-                student_fullname=student_fullname, course_name=course_name
+            result_helper.add_score(
+                student_fullname=student_fullname, course_name=course_name, score=score
             )
         except Exception as e:
-            logger.exception(f"Error deleting score with exception details {e}")
+            logger.exception(f"Error adding score with exception details {e}")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Issue with deleting score",
+                detail="Issue with adding score",
             )
-        return {"is_deleted": True}
+        else:
+            return {"is_added": True}
+
+
+@result_apis.get("/get-score-matrix")
+def get_all_score_matrix():
+    try:
+        score_matrix = result_helper.get_all_score_matrix()
+    except Exception as e:
+        logger.exception(
+            f"Error while getting all score matrix with exception details {e}"
+        )
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Issue with getting all score matrix",
+        )
+    else:
+        return {"score_matrix": score_matrix}
