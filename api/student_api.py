@@ -15,6 +15,7 @@ student_apis = APIRouter()
 async def register(registration_payload: RegistrationPayload):
     logger.info(f"Registering user with payload: {registration_payload}")
     try:
+        # register new user
         new_student_id = student_helper.register(**registration_payload.dict())
     except Exception as e:
         logger.exception(f"Error while registering user with exception details {e}")
@@ -23,6 +24,7 @@ async def register(registration_payload: RegistrationPayload):
             detail="Issue with registering user",
         )
     else:
+        # return id of newly registered user
         return {"id": new_student_id}
 
 
@@ -30,6 +32,7 @@ async def register(registration_payload: RegistrationPayload):
 async def get_all_students():
     logger.info(f"Getting all student information")
     try:
+        # get all students from database
         students = student_helper.get_all_students()
     except Exception as e:
         logger.exception(f"Error while getting all students with exception details {e}")
@@ -38,4 +41,4 @@ async def get_all_students():
             detail="Issue with getting all students",
         )
     else:
-        return {"id": students}
+        return {"students": students}

@@ -8,6 +8,13 @@ from models.service.student import get_student_given_fullname
 
 
 def add_score(student_fullname, course_name, score):
+    """
+    Add score of the course for the individual to database
+    :param student_fullname: Full name of the student
+    :param course_name: Name of the course
+    :param score: Score of the student
+    :return: ID of the result entry
+    """
     try:
         course = db_session.execute(
             "SELECT * FROM course WHERE name = :name", {"name": course_name}
@@ -35,6 +42,10 @@ def add_score(student_fullname, course_name, score):
 
 
 def get_all_score_matrix():
+    """
+    Get all score matrix from database using names instead of IDs
+    :return: All score matrix
+    """
     try:
         score_matrix = db_session.query(Result).all()
     except Exception as e:

@@ -5,6 +5,9 @@ from models.entity.course import Course
 
 
 def get_all_courses():
+    """
+    Get all courses from database
+    :return: All courses"""
     try:
         students = db_session.query(Course).all()
     except Exception as e:
@@ -15,6 +18,10 @@ def get_all_courses():
 
 
 def delete_course_by_id(course_id: str):
+    """
+    Delete course from database
+    :param course_id: ID of the course  to be deleted
+    :return: None"""
     try:
         course = db_session.query(Course).filter(Course.id == course_id).first()
         db_session.delete(course)
@@ -25,6 +32,10 @@ def delete_course_by_id(course_id: str):
 
 
 def delete_course_by_name(course_name: str):
+    """
+    Delete course from database
+    :param course_name: Name of the course to be deleted
+    :return: None"""
     try:
         course = db_session.query(Course).filter(Course.name == course_name).first()
         db_session.delete(course)
@@ -35,6 +46,10 @@ def delete_course_by_name(course_name: str):
 
 
 def add_course(name):
+    """
+    Add course to database
+    :param name: Name of the course to be added
+    :return: ID of the course"""
     try:
         course = Course(
             name=name,

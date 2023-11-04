@@ -14,6 +14,7 @@ def add_score_matrix(
 ):
     if student_fullname and course_name:
         try:
+            # add score of the course for the individual to database
             result_helper.add_score(
                 student_fullname=student_fullname, course_name=course_name, score=score
             )
@@ -30,6 +31,7 @@ def add_score_matrix(
 @result_apis.get("/get-score-matrix")
 def get_all_score_matrix():
     try:
+        # Get all score matrix from database using names instead of IDs
         score_matrix = result_helper.get_all_score_matrix()
     except Exception as e:
         logger.exception(

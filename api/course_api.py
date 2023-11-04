@@ -29,6 +29,7 @@ async def get_all_courses():
 async def delete_course_by_id(course_id):
     logger.info(f"Deleting course information by {course_id}")
     try:
+        # delete course from database using provided course_id
         course_helper.delete_course_by_id(course_id=course_id)
     except Exception as e:
         logger.exception(f"Error deleting course with exception details {e}")
@@ -37,13 +38,15 @@ async def delete_course_by_id(course_id):
             detail="Issue with deleting course",
         )
     else:
+        # provide status of deletion
         return {"is_deleted": True}
 
 
 @course_apis.post("/add-new-course")
 async def add_course(name: str):
-    logger.info(f"Deleting course information")
+    logger.info(f"Adding course")
     try:
+        # add course to database
         new_course_id = course_helper.add_course(name=name)
     except Exception as e:
         logger.exception(f"Error adding course with exception details {e}")
