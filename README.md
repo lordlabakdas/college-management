@@ -2,12 +2,12 @@
 
 -----
 
-## The total set of APIs is provided below:
+# The total set of APIs is provided below:
 /home - returns the mail URLS for the above processes
 
-Post `/student/register` - register a new student to the database
+POST `/student/register` - register a new student to the database
 
-Get `/student/get-all-students` - get all students from the database
+GET `/student/get-all-students` - get all students from the database
 
 GET `/courses/get-all-courses` - get all courses from the database
 
@@ -15,44 +15,61 @@ POST `/courses/add-new-course` - add a new course to the database
 
 DELETE `/courses/delete-course/{courseId}` - delete a course from the database
 
-DELETE `results/delete-entity/` - delete an entity or entities from the database
+POST `results/add-score-matrix/` - adds score from a course for an individual from the database
+
+DELETE `results/delete-score-matrix/` - delete s score from a course for an individual from the database
+
+GET `/home` - set of links provided for th homepage
+
+----
+# Database
+
+A postgres database has been used for our app. This is a hosted database on elephantsql.com with credentials stored in .env.
 
 ----
 
-## Documentation and testing:
+# Testing APIs:
 
-Testing and documentation has been dont using `swagger` at 127.0.0.1:8001/docs
+A working version of the app can be found at `https://petco-assignment-46f2215afbed.herokuapp.com/docs`
 
 ----
 
-## Database: 
+# Local Install:
 
-Postgres has been used for the database. The service used for this purpose is elephantsql.com.
+Instructions have been provided for a local install of the app
+
+Assuming the operating system is Ubuntu:
+
+Esure the following packages are installed to take advantage of psycopg package required for Postgres connector.
+`$ sudo apt install build-essential`
+`$ sudo apt-get install libpq-dev`
 
 ----
 
 ## A virtual environment venv is recommended to run the program:
 ```
-$ python3 -m venv venv
-$ source venv/bin/activate
+`$ python3 -m venv venv`
+`$ source venv/bin/activate`
 ```
 
 ----
 
 ## How to install depedencencies:
 ```
-$ pip3 install -r requirements.txt
+`$ pip3 install psycopg2-binary`
+`$ pip3 install -r requirements.txt`
 ```
-
 ----
+## Install environment variables
+`$ set -a`
 
-## Logging:
+`$ source .env`
 
-`Loguru` was used for logging purposes. The logs are stored in the logs folder.
+`$ set +a`
 
 ----
 
 ## How to run program:
 ```
-$ python app.py if in venv else python3 app.py
+$ python3 app.py
 ```
